@@ -22,8 +22,6 @@ module.exports = function check(str, bracketsConfig) {
                     tempArray[tempArray.length - 1] != bracketsConfig[j][0] &&
                     bracketsConfig[j][0] != bracketsConfig[j][1]
                 ) {
-                    console.log("tempArray = ", tempArray);
-                    console.log("i = ", i);
                     return false;
                 }
                 if (tempArray[tempArray.length - 1] == bracketsConfig[j][0]) {
