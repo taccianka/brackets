@@ -7,20 +7,20 @@ module.exports = function check(str, bracketsConfig) {
     let result;
     let i, temp;
 
-      for (i = 0; i < stringArray.length; i++) {
-        for (let j = 0; j < bracketsConfig.length; j++)   {
-            if (stringArray[i] == bracketsConfig[j][0]) {
+    for (i = 0; i < stringArray.length; i++) {
+        for (let j = 0; j < bracketsConfig.length; j++) {
+            if (stringArray[i] == bracketsConfig[j][0] && (bracketsConfig[j][0] != bracketsConfig[j][1] || flag == 1)) {
                 tempArray.push(stringArray[i]);
-            } else if (
-                stringArray[i] == bracketsConfig[j][1]
-            ) {
-                 if (tempArray[tempArray.length - 1]  != bracketsConfig[j][0]) {
+                if (bracketsConfig[j][0] == bracketsConfig[j][1]) flag = 0;
+            } else if (stringArray[i] == bracketsConfig[j][1]) {
+                if (tempArray[tempArray.length - 1] != bracketsConfig[j][0] && bracketsConfig[j][0] != bracketsConfig[j][1]) {
                     return false;
-                 }
-                 if (tempArray[tempArray.length - 1] == bracketsConfig[j][0])
-                 {
+                }
+                if (tempArray[tempArray.length - 1] == bracketsConfig[j][0]) {
                     tempArray.pop();
-                 }
+                   /* flag = 0;*/
+                }
+                if (bracketsConfig[j][0] == bracketsConfig[j][1]) flag = 1;
             } else continue;
         }
     }
