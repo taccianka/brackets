@@ -5,7 +5,9 @@ module.exports = function check(str, bracketsConfig) {
     let tempArray = [];
     let k = 0;
     let result;
-    let i, temp;
+    let i, temp, flag;
+    
+    flag = 1;
 
     for (i = 0; i < stringArray.length; i++) {
         for (let j = 0; j < bracketsConfig.length; j++) {
