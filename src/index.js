@@ -29,10 +29,12 @@ module.exports = function check(str, bracketsConfig) {
     }
 */
 
-    for (let j = 0; j < bracketsConfig.length; j++) {
-        for (i = 0; i < stringArray.length; i++) {
+ for (i = 0; i < stringArray.length; i++) {
+        for (let j = 0; j < bracketsConfig.length; j++) {
             if (stringArray[i] == bracketsConfig[j][0]) {
                 tempArray.push(stringArray[i]);
+            } else if (stringArray[i] != bracketsConfig[j][1]) {
+                return false;
             } else if (
                 stringArray[i] == bracketsConfig[j][1] &&
                 tempArray[tempArray.length - 1] == bracketsConfig[j][0]
@@ -41,6 +43,7 @@ module.exports = function check(str, bracketsConfig) {
             } else continue;
         }
     }
+
 
     /*     for (let j = 0; j < bracketsConfig1.length; j++) {
             for (; i < stringArray.length; i++) {
